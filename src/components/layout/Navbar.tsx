@@ -3,16 +3,18 @@ import { ModeToggle } from "../mode-toggle";
 
 export default function Navbar() {
   return (
-    <nav className="max-w-7xl mx-auto h-16 items-center gap-3 px-5">
+    <nav className="flex max-w-7xl mx-auto h-16 items-center gap-3 justify-between px-5">
       <div className="flex items-center">
-        <div>
-          <span>Task Mengment</span>
-        </div>
-        <div className="gap-4 mr-4">
-          <Link to="/tasks">Tasks</Link>
-          <Link to="/users">Users</Link>
-        </div>
-        <ModeToggle></ModeToggle>
+        <span className="font-bold ml-2">Task Mengment</span>
+      </div>
+
+      <Link className="mx-4" to="/tasks">
+        Tasks
+      </Link>
+      <Link to="/users">Users</Link>
+
+      <div className="ml-auto">
+        <ModeToggle />
       </div>
     </nav>
   );
