@@ -33,7 +33,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { addTask } from "@/redux/features/task/taskSlice";
 import { DialogDescription } from "@radix-ui/react-dialog";
 
-import { useForm } from "react-hook-form";
+import { useForm, type FieldValues, type SubmitHandler } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import {
@@ -42,15 +42,16 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
+import type { ITask } from "@/type";
 
 export function AddTaskModel() {
   const form = useForm();
 
   const dispatch = useDispatch();
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
     console.log(data);
-    dispatch(addTask(data));
+    dispatch(addTask(data as ITask));
   };
 
   return (
